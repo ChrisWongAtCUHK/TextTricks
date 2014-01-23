@@ -441,7 +441,9 @@ if [ $# -ne 0 ]; then
 		for(( i=1;i<=${#var};i=i+1 ))
 		do
 			c=$(echo ${var} | cut -c ${i})
-			big_char "${c}"
+			# convert upper case to lower
+			char=`echo ${c} | tr '[:upper:]' '[:lower:]'`
+			big_char "${char}"
 		done
 		# condense one space for one argument
 		big_space
